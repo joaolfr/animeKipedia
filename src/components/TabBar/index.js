@@ -6,7 +6,7 @@ import {
   HomeIcon,
   FavoriteIcon,
   RouteButton,
-  Esphere
+  Esphere, ProfileIcon
 } from './styles';
 
 const TabBar = ({state, descriptors, navigation}) => {
@@ -38,17 +38,21 @@ const TabBar = ({state, descriptors, navigation}) => {
           };
 
           return (
-            <RouteButton
+            
+            label === 'Detail' ? (true):(
+
+              <RouteButton
               key={index}
               onPress={onPress}
               style={{flex: 1, alignItems: 'center'}}>
-              {label === 'Home' ? (
-                <HomeIcon isFocused={isFocused} />
-              ) : (
-                <FavoriteIcon isFocused={isFocused} />
-              )}
-            </RouteButton>
-          );
+                {label === 'Home' &&  <HomeIcon isFocused={isFocused} /> } 
+                {label === 'Favorites' &&  <FavoriteIcon isFocused={isFocused} /> } 
+                {label === 'Profile' &&  <ProfileIcon isFocused={isFocused} /> } 
+               
+              </RouteButton>
+            )
+            );
+          
         })}
       </Container>
     </Wrapper>

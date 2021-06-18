@@ -4,13 +4,13 @@ import {useAnimesStore} from '../../stores';
 
 export default () => {
   const [loading, setLoading] = useState(false);
-  const {setAnimes} = useAnimesStore();
+  const {setAnimes, animes, offset, updateOffset} = useAnimesStore();
 
-  const loadAnimes = useCallback(async search => {
+  const loadNext = useCallback(async search => {
     setLoading(true);
     try {
       const {data} = await API.get(
-        `/anime`,
+        `/anime?page[offset]=${offset}`,
       );
       if (data.Response === 'False') {
         setAnimes([
@@ -21,9 +21,10 @@ export default () => {
           },
         ]);
       } else {
-         
-          setAnimes(data.data)
-        
+          let arr = data.data;
+          arr = [...animes, ...data.data]
+          setAnimes(arr)
+          updateOffset()
           
       }
 
@@ -32,6 +33,6 @@ export default () => {
       setLoading(false);
       console.log('erro statement: ', err);
     }
-  }, []);
-  return {loading, loadAnimes};
+  }, [offset]);
+  return {loading, loadNext};
 };

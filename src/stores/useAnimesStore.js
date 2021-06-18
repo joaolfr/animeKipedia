@@ -5,7 +5,7 @@ const initialState = {
   favorites: [],
   searchAnimes: [],
   favoritesIds: [],
-  offset:0
+  offset:10
 };
 
 const useAnimeStore = create((set, get) => ({

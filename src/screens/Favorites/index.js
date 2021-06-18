@@ -1,10 +1,18 @@
 import React from 'react'
-import { Wrapper } from './styles'
+import { Wrapper, Span } from './styles'
+import useFavorites from './hooks'
 
 const Favorites = () => {
-
+    
+    const {favoritesIds} = useFavorites()
     return(
-        <Wrapper />
+        <Wrapper>
+           {favoritesIds.map((item,index) => (
+              <Span key={index}>
+                  {item}
+              </Span>
+           ))}
+        </Wrapper>
     )
 }
 

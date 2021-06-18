@@ -27,6 +27,8 @@ export const MovieIcon = styled(Ionicons).attrs(props => ({
   
 `;
 
+
+
 export const Esphere = styled.Image`
 position:absolute;
 top:-25px;
@@ -34,10 +36,18 @@ height:50px;
 width:50px;
 `
 
+
+
 export const HomeIcon = styled(Ionicons).attrs(props => ({
   name: props.isFocused ? 'home' : 'home-outline',
   color: 'white',
   size: 30,
+}))``;
+
+export const ProfileIcon = styled(Ionicons).attrs(props => ({
+  name: props.isFocused ? 'person-circle' : 'person-circle-outline',
+  color: 'white',
+  size: 35,
 }))``;
 export const FavoriteIcon = styled(Ionicons).attrs(props => ({
   name: props.isFocused ? 'star' : 'star-outline',

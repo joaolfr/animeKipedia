@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {Home, Favorites} from 'src/screens';
+import {Home, Favorites, Detail, Profile} from 'src/screens';
 import TabBar from 'src/components/TabBar';
 
 const navTheme = DefaultTheme;
@@ -14,7 +14,9 @@ const Router = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator tabBar={props => <TabBar {...props} />}>
+        <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Detail" component={Detail} />
         <Tab.Screen name="Favorites" component={Favorites} />
       </Tab.Navigator>
     </NavigationContainer>
