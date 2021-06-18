@@ -6,16 +6,11 @@
  * @flow strict-local
  */
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import Root from './src'
 
 const App: () => React$Node = () => {
-  return (
-    <SafeAreaView>
-      <Text>
-        animeKipedia
-      </Text>
-    </SafeAreaView>
-  ) 
+  return <Root />
+    
 };
 
 export default App;
