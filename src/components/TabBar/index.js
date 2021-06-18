@@ -6,12 +6,14 @@ import {
   HomeIcon,
   FavoriteIcon,
   RouteButton,
+  Esphere
 } from './styles';
 
 const TabBar = ({state, descriptors, navigation}) => {
   return (
     <Wrapper>
-      <MovieIcon />
+      {/* <MovieIcon /> */}
+      <Esphere source={require('../../assets/images/esphere.png')} />
       <Container>
         {state.routes.map((route, index) => {
           const {options} = descriptors[route.key];

@@ -4,10 +4,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const Wrapper = styled.View`
   flex-direction: column;
-  background: #0e1c1d;
+  background: #042278;
   height: 80px;
-  border-top-width: 3px;
-  border-top-color: white;
+  background:${props => props.theme.colors.secondary}
   justify-content: center;
   align-items: center;
   position: relative;
@@ -18,15 +17,22 @@ export const Container = styled.View`
 `;
 export const Text = styled.Text``;
 
-export const MovieIcon = styled(Material).attrs(props => ({
-  name: 'live-tv',
+export const MovieIcon = styled(Ionicons).attrs(props => ({
+  name: 'play-circle-outline',
   size: 60,
-  color: props.theme.colors.secondary,
+  color: 'white',
 }))`
   position: absolute;
   top: -35px;
-  background: ${props => props.theme.colors.primary};
+  
 `;
+
+export const Esphere = styled.Image`
+position:absolute;
+top:-30px;
+height:50px;
+width:50px;
+`
 
 export const HomeIcon = styled(Ionicons).attrs(props => ({
   name: props.isFocused ? 'home' : 'home-outline',
