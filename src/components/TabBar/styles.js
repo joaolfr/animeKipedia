@@ -29,7 +29,7 @@ export const MovieIcon = styled(Ionicons).attrs(props => ({
 
 export const Esphere = styled.Image`
 position:absolute;
-top:-30px;
+top:-25px;
 height:50px;
 width:50px;
 `
