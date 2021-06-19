@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Wrapper, Span, TouchPress , SwitchView, SwitchButton} from './styles'
 import useAnime from './animeHooks'
 import useManga from './mangaHooks'
 import {FlatList} from 'react-native'
 import Modal from 'src/components/Modal'
+import List from 'src/components/List'
 import Search from 'src/components/Search'
+import Switcher from 'src/components/Switcher'
 
 const Home = () => {
 
@@ -40,95 +42,32 @@ const Home = () => {
         setQueryManga, 
     } = useManga()
 
-    const renderItem = ({item}) => {
-        return(
-            <TouchPress onPress={() => setCurrentObj(item)}>
-              <Span>
-                  {item.attributes.canonicalTitle},{item.id}
-              </Span>
-            </TouchPress>
-        )
-    }
-    const renderMangaItem = ({item}) => {
-        return(
-            <TouchPress onPress={() => setCurrentMangaObj(item)}>
-              <Span>
-                  {item.attributes.canonicalTitle},{item.id}
-              </Span>
-            </TouchPress>
-        )
-    }
-
-    const listFooter = () => {
-        return(
-              <Span>
-                  Loading more animes...
-              </Span>
-        
-        )
-    }
-    const listFooterManga = () => {
-        return(
-              <Span>
-                  Loading more mangas...
-              </Span>
-        
-        )
-    }
-
     return(
-        currentType ==='Anime' ? (
-
+    
         <Wrapper>
-          <Search queryText={queryText} setQueryText={setQueryText} search={search} />
-          <SwitchView>
-              <SwitchButton isActive={currentType === 'Anime'} onPress={() => setCurrentType('Anime')}>
-                  <Span >Anime</Span>
-              </SwitchButton>
-              <SwitchButton isActive={currentType === 'Manga'} onPress={() => setCurrentType('Manga')}>
-                  <Span>Manga</Span>
-              </SwitchButton>
-          </SwitchView>
-            {loading && <Span>loading animes...</Span>}
-            {!loading && (
+            <Search 
+                queryText={currentType ==='Anime'? queryText : queryManga} 
+                setQueryText={currentType ==='Anime' ? setQueryText : setQueryManga} 
+                search={currentType ==='Anime' ? search : searchMangas} />
 
-                <FlatList 
-                data={animes}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-                ListFooterComponent={listFooter} 
-                onEndReachedThreshold={0.01}   
-                onEndReached={() => searchNext()}           
-                />
-           )}
-           <Modal favoritesIds={favoritesIds} changeFavorites={changeFavorites} current={current} isVisible={isModalVisible} toggleModal={toggleModal}/>
-        </Wrapper>
-        ) : (
-             <Wrapper>
-          <Search queryText={queryManga} setQueryText={setQueryManga} search={searchMangas} />
-          <SwitchView>
-              <SwitchButton isActive={currentType === 'Anime'} onPress={() => setCurrentType('Anime')}>
-                  <Span >Anime</Span>
-              </SwitchButton>
-              <SwitchButton isActive={currentType === 'Manga'} onPress={() => setCurrentType('Manga')}>
-                  <Span>Manga</Span>
-              </SwitchButton>
-          </SwitchView>
-            {loadingMangas && <Span>loading mangas...</Span>}
-            {!loadingMangas && (
+            <Switcher currentType={currentType} setCurrentType={setCurrentType} />
+       
+            <List 
+                data={currentType ==='Anime' ? animes: mangas}
+                searchNext={currentType ==='Anime' ? searchNext : searchNextMangas} 
+                currentType={currentType}
+                setCurrentObj={currentType ==='Anime' ? setCurrentObj : setCurrentMangaObj}   
+                loading={currentType ==='Anime' ? loading : loadingMangas} />
+         
+           <Modal 
+                favoritesIds={currentType ==='Anime' ? favoritesIds : favoritesMangasIds} 
+                changeFavorites={currentType ==='Anime' ? changeFavorites : changeFavoritesMangas} 
+                current={currentType ==='Anime' ? current : currentManga} 
+                isVisible={currentType ==='Anime' ? isModalVisible : isModalMangaVisible} 
+                toggleModal={currentType ==='Anime' ?toggleModal : toggleMangaModal}/>
 
-                <FlatList 
-                data={ mangas}
-                renderItem={renderMangaItem}
-                keyExtractor={item => item.id}
-                ListFooterComponent={listFooterManga} 
-                onEndReachedThreshold={0.01}   
-                onEndReached={() => searchNextMangas()}           
-                />
-           )}
-           <Modal favoritesIds={favoritesMangasIds} changeFavorites={changeFavoritesMangas} current={currentManga} isVisible={isModalMangaVisible} toggleModal={toggleMangaModal}/>
         </Wrapper>
-        )
+       
     )
 }
 
