@@ -16,7 +16,8 @@ const useAnimeStore = create((set, get) => ({
     set(state => ({...state, searchAnimes: searchList})),
   setFavorites: list => set(state => ({...state, favorites: list})),
   setFavoritesIds: list => set(state => ({...state, favoritesIds: list})),
-  updateOffset:() => set(state => ({...state, offset:state.offset+10}))
+  updateOffset:() => set(state => ({...state, offset:state.offset+10})),
+  clearAnimes: () => set(state => ({...state, anime:[]}))
 }));
 
 export default useAnimeStore;

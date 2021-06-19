@@ -8,9 +8,16 @@ export default () => {
 
   const loadAnimes = useCallback(async search => {
     setLoading(true);
+
+    let query = '/anime'
+
+    if(search){
+      query = `/anime?filter[text]=${search}`
+    }
+
     try {
       const {data} = await API.get(
-        `/anime`,
+        query,
       );
       if (data.Response === 'False') {
         setAnimes([

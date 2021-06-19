@@ -8,9 +8,14 @@ export default () => {
 
   const loadNext = useCallback(async search => {
     setLoading(true);
+    let query = `/anime?page[offset]=${offset}`
+    if(search){
+      console.log('tem search', search)
+      query = `/anime?page[offset]=${offset}&filter[text]=${search}`
+    }
     try {
       const {data} = await API.get(
-        `/anime?page[offset]=${offset}`,
+        query,
       );
       if (data.Response === 'False') {
         setAnimes([
@@ -33,6 +38,6 @@ export default () => {
       setLoading(false);
       console.log('erro statement: ', err);
     }
-  }, [offset]);
+  }, [offset, animes]);
   return {loading, loadNext};
 };

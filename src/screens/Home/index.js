@@ -3,10 +3,11 @@ import { Wrapper, Span, TouchPress } from './styles'
 import useHome from './hooks'
 import {FlatList} from 'react-native'
 import Modal from 'src/components/Modal'
+import Search from 'src/components/Search'
 
 const Home = () => {
 
-    const {loading, animes, loadNext, loadingNext, isModalVisible, toggleModal, setCurrentObj, current, changeFavorites, favoritesIds} = useHome()
+    const {loading, animes, searchNext, loadingNext, isModalVisible, toggleModal, setCurrentObj, current, changeFavorites, favoritesIds, queryText, setQueryText, search} = useHome()
 
     const renderItem = ({item}) => {
         return(
@@ -29,7 +30,7 @@ const Home = () => {
 
     return(
         <Wrapper>
-          
+          <Search queryText={queryText} setQueryText={setQueryText} search={search} />
             {loading && <Span>loading animes...</Span>}
             {!loading && (
 
@@ -39,7 +40,7 @@ const Home = () => {
                 keyExtractor={item => item.id}
                 ListFooterComponent={listFooter} 
                 onEndReachedThreshold={0.01}   
-                onEndReached={() => loadNext()}           
+                onEndReached={() => searchNext()}           
                 />
            )}
            <Modal favoritesIds={favoritesIds} changeFavorites={changeFavorites} current={current} isVisible={isModalVisible} toggleModal={toggleModal}/>

@@ -6,10 +6,10 @@ export default () => {
 
     const {loadAnimes, loading} = getAnimes()
     const {loading:loadingNext, loadNext} = updateAnimesList()
-    const {animes, favorites, favoritesIds, setFavorites, setFavoritesIds} = useAnimesStore()
- 
+    const {animes, clearAnimes, favorites, favoritesIds, setFavorites, setFavoritesIds} = useAnimesStore()
+   
     const [isModalVisible, setIsModalVisible] = useState(false)
-
+    const [queryText, setQueryText] = useState('')
     const [current, setCurrent] = useState({})
 
 
@@ -26,8 +26,17 @@ export default () => {
         loadAnimes()
     }, [])
     
+//SEARCH FUNCTIONs
+    const search = () => {
+      console.log('chamou search nex', queryText)
+      clearAnimes()
+      loadAnimes(queryText)
+    }
+    const searchNext = () => {
+      console.log('chamou load nex', queryText)
+      loadNext(queryText)
+    }
 
-    
   //function used to manipulate the favorites list (add and remove)
   const changeFavorites = obj => {
     let arr = favorites;
@@ -51,12 +60,15 @@ export default () => {
         loading,
         animes,
         loadNext, 
+        search,
+        searchNext,
         loadingNext,
         setCurrentObj,
         toggleModal,
         isModalVisible,
         current,
         changeFavorites,
-        favoritesIds
+        favoritesIds,
+        queryText, setQueryText, search
     }
 }
