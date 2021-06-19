@@ -47,7 +47,7 @@ export default () => {
   const changeFavoritesMangas = obj => {
     let arr = favoritesMangas;
     let list = favoritesMangasIds;
-
+console.log("add fav manga: ", obj.id)
     if (favoritesMangasIds.includes(obj.id)) {
       let index = list.indexOf(obj.id);
       list.splice(index, 1);

@@ -49,7 +49,7 @@ const Home = () => {
             </TouchPress>
         )
     }
-       const renderMangaItem = ({item}) => {
+    const renderMangaItem = ({item}) => {
         return(
             <TouchPress onPress={() => setCurrentMangaObj(item)}>
               <Span>
@@ -63,6 +63,14 @@ const Home = () => {
         return(
               <Span>
                   Loading more animes...
+              </Span>
+        
+        )
+    }
+    const listFooterManga = () => {
+        return(
+              <Span>
+                  Loading more mangas...
               </Span>
         
         )
@@ -113,7 +121,7 @@ const Home = () => {
                 data={ mangas}
                 renderItem={renderMangaItem}
                 keyExtractor={item => item.id}
-                ListFooterComponent={listFooter} 
+                ListFooterComponent={listFooterManga} 
                 onEndReachedThreshold={0.01}   
                 onEndReached={() => searchNextMangas()}           
                 />

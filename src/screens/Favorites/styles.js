@@ -29,3 +29,19 @@ export const FavoriteOption = styled(Ionicons).attrs(props => ({
   size: 50,
   // : 'star-outline'
 }))``;
+
+
+export const SwitchView = styled.View`
+width:100%;
+height:50px;
+flex-direction:row;
+
+` 
+export const SwitchButton = styled.TouchableOpacity`
+background:${props => props.isActive ? 'orange':'gray'};
+flex:1;
+height:100%;
+align-items:center;
+justify-content:center;
+
+` 
