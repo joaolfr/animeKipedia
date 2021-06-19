@@ -4,9 +4,11 @@ import {useAnimesStore} from 'src/stores'
 
 export default () => {
 
+  //animes
     const {loadAnimes, loading} = getAnimes()
-    const {loading:loadingNext, loadNext} = updateAnimesList()
+    const {loadNext, loading:loadingNext } = updateAnimesList()
     const {animes, clearAnimes, favorites, favoritesIds, setFavorites, setFavoritesIds} = useAnimesStore()
+
    
     const [isModalVisible, setIsModalVisible] = useState(false)
     const [queryText, setQueryText] = useState('')
@@ -24,16 +26,17 @@ export default () => {
 
     useEffect(() => {
         loadAnimes()
+        
     }, [])
     
-//SEARCH FUNCTIONs
+//SEARCH ANIME FUNCTIONs
     const search = () => {
-      console.log('chamou search nex', queryText)
+      console.log('chamou search animes', queryText)
       clearAnimes()
       loadAnimes(queryText)
     }
     const searchNext = () => {
-      console.log('chamou load nex', queryText)
+      console.log('chamou search next animes', queryText)
       loadNext(queryText)
     }
 
@@ -58,17 +61,18 @@ export default () => {
 
     return{
         loading,
-        animes,
-        loadNext, 
-        search,
-        searchNext,
-        loadingNext,
-        setCurrentObj,
-        toggleModal,
+        animes, 
+        queryText, 
         isModalVisible,
         current,
-        changeFavorites,
         favoritesIds,
-        queryText, setQueryText, search
+        loadingNext,
+        search,
+        searchNext,
+        setCurrentObj,
+        toggleModal,
+        changeFavorites,
+        setQueryText, 
+        
     }
 }
