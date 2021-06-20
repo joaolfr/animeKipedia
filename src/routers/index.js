@@ -16,7 +16,6 @@ const Router = () => {
       <Tab.Navigator tabBar={props => <TabBar {...props} />}>
         <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Detail" component={Detail} />
         <Tab.Screen name="Favorites" component={Favorites} />
       </Tab.Navigator>
     </NavigationContainer>

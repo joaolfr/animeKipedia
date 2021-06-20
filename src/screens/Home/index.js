@@ -1,12 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import { Wrapper, Span, TouchPress , SwitchView, SwitchButton} from './styles'
+import React, {useState} from 'react'
+import { Wrapper} from './styles'
 import useAnime from './animeHooks'
 import useManga from './mangaHooks'
-import {FlatList} from 'react-native'
-import Modal from 'src/components/Modal'
-import List from 'src/components/List'
-import Search from 'src/components/Search'
-import Switcher from 'src/components/Switcher'
+import {Modal, List, Search, Switcher} from 'src/components'
+
 
 const Home = () => {
 

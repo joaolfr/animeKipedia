@@ -1,19 +1,19 @@
 import React from 'react';
 import {
   Wrapper,
-  MovieIcon,
+
   Container,
-  HomeIcon,
-  FavoriteIcon,
+
   RouteButton,
-  Esphere, ProfileIcon
+
 } from './styles';
+import {View} from 'react-native'
+import {Person, Grid, Heart} from 'src/assets/icons/tab'
 
 const TabBar = ({state, descriptors, navigation}) => {
   return (
     <Wrapper>
-      {/* <MovieIcon /> */}
-      <Esphere source={require('../../assets/images/esphere.png')} />
+   
       <Container>
         {state.routes.map((route, index) => {
           const {options} = descriptors[route.key];
@@ -38,19 +38,23 @@ const TabBar = ({state, descriptors, navigation}) => {
           };
 
           return (
-            
-            label === 'Detail' ? (true):(
-
+      
               <RouteButton
+              isFocused={isFocused}
+              label={label}
               key={index}
               onPress={onPress}
-              style={{flex: 1, alignItems: 'center'}}>
-                {label === 'Home' &&  <HomeIcon isFocused={isFocused} /> } 
-                {label === 'Favorites' &&  <FavoriteIcon isFocused={isFocused} /> } 
-                {label === 'Profile' &&  <ProfileIcon isFocused={isFocused} /> } 
+              activeOpacity={1}
+              >
+                
+
+                {label === 'Home' &&  <Grid height={24} width={24} fill={isFocused ? 'white' : 'transparent'} /> } 
+                {label === 'Favorites' &&   <Heart height={24} width={24} fill={isFocused ? 'white' : 'transparent'} /> } 
+                {label === 'Profile' &&   <Person height={24} width={24} fill={isFocused ? 'white' : 'transparent'}/> } 
                
+                
               </RouteButton>
-            )
+            
             );
           
         })}

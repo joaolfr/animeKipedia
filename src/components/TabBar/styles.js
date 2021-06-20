@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import Material from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import metrics from 'src/utils/metrics'
 
 export const Wrapper = styled.View`
   flex-direction: column;
   background: #042278;
-  height: 80px;
-  background:${props => props.theme.colors.secondary}
+  height: ${metrics.hp(53)}px;
+  background:${props => props.theme.colors.primary}
   justify-content: center;
   align-items: center;
   position: relative;
@@ -14,45 +13,26 @@ export const Wrapper = styled.View`
 
 export const Container = styled.View`
   flex-direction: row;
-`;
-export const Text = styled.Text``;
-
-export const MovieIcon = styled(Ionicons).attrs(props => ({
-  name: 'play-circle-outline',
-  size: 60,
-  color: 'white',
-}))`
-  position: absolute;
-  top: -35px;
-  
+  height:100%;
+  justify-content:center;
+  align-items:center;
 `;
 
 
+export const RouteButton = styled.TouchableOpacity`
 
-export const Esphere = styled.Image`
-position:absolute;
-top:-25px;
-height:50px;
-width:50px;
-`
+flex:1;
+border-bottom-width:${ props=> props.isFocused ? metrics.hp(2):'0'}px;
+border-bottom-color:${props=> props.isFocused ? props.theme.colors.auxiliary : 'transparent'}
 
+border-left-width:${props=> props.label === 'Home' ? metrics.hp(0.5) : '0'}px;
+border-left-color:${props=> props.label === 'Home' ? 'rgba(242, 242, 242, 0.3)' : 'blue'}
 
+border-right-width:${props=> props.label === 'Home' ? metrics.hp(0.5) : '0'}px;
+border-right-color:${props=> props.label === 'Home' ? 'rgba(242, 242, 242, 0.3)' : 'blue'}
 
-export const HomeIcon = styled(Ionicons).attrs(props => ({
-  name: props.isFocused ? 'home' : 'home-outline',
-  color: 'white',
-  size: 30,
-}))``;
-
-export const ProfileIcon = styled(Ionicons).attrs(props => ({
-  name: props.isFocused ? 'person-circle' : 'person-circle-outline',
-  color: 'white',
-  size: 35,
-}))``;
-export const FavoriteIcon = styled(Ionicons).attrs(props => ({
-  name: props.isFocused ? 'star' : 'star-outline',
-  color: 'white',
-  size: 30,
-}))``;
-
-export const RouteButton = styled.TouchableOpacity``;
+height:100%;
+align-items:center;
+justify-content:center;
+margin:0 3px 0 2px;
+`;

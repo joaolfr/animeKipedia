@@ -3,6 +3,8 @@ import styled from 'styled-components';
 const TextStyled = styled.Text`
   font-size: ${props => {
     switch (props.type) {
+      case 'large':
+        return 24;
       case 'big':
         return 20;
       case 'max':
