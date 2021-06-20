@@ -1,11 +1,22 @@
 import styled from 'styled-components'
+import metrics from 'src/utils/metrics'
 
 export const Wrapper = styled.View`
 width:100%;
-height:50px;
+height:${metrics.hp(37)}px;
 background:#fff;
+flex-direction:row;
+background:${props => props.theme.colors.primary_subtle};
+align-items:center;
+padding:0 ${metrics.hp(10)}px;
+border-radius:15px;
 ` 
 
-export const SearchInput = styled.TextInput`
-
+export const SearchInput = styled.TextInput.attrs((props)=>({
+    placeholderTextColor: props.theme.colors.auxiliary
+}))`
+flex:1;
+margin-left:${metrics.hp(10)}px;
+font-size:12px;
+color:${props => props.theme.colors.auxiliary}
 ` 

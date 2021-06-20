@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import FastImage from 'react-native-fast-image';
 
 export const Wrapper = styled.View`
+  height: ${(props) => 1.6*(props.size)}px;
   width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
   background: #c4c4c4;
   border-radius: ${(props) => {
     switch (true) {
@@ -13,10 +13,11 @@ export const Wrapper = styled.View`
       default: return 0;
     }
   }}px;
+  margin:${props => props.margin}px;
 `;
 export const ImageStyled = styled(FastImage)`
-  height: ${(props) => props.size}px;
-  width: ${(props) => props.size}px;
+  height: 100%;
+  width: 100%;
   border-radius: ${(props) => {
     switch (true) {
       case props.circle: return props.size;

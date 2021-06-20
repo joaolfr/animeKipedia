@@ -5,14 +5,14 @@ import { Wrapper, ImageStyled } from './styles';
 import { NoImage, ProfileImage } from 'src/assets/images';
 
 const Image = ({
-  uri, size, circle, around, square,
+  uri, size, circle, around, square, margin
 }) => {
   let ImageSource = NoImage;
   if (uri) {
     ImageSource = { uri, priority: FastImage.priority.normal };
   }
   return (
-    <Wrapper size={size} circle={circle} around={around} square={square}>
+    <Wrapper size={size} circle={circle} around={around} square={square} margin={margin}>
       <ImageStyled
         source={ImageSource}
         size={size}
@@ -27,6 +27,7 @@ const Image = ({
 Image.propTypes = {
   uri: PropTypes.string,
   size: PropTypes.number,
+  margin: PropTypes.number,
   circle: PropTypes.bool,
   around: PropTypes.bool,
   square: PropTypes.bool,
@@ -35,6 +36,7 @@ Image.propTypes = {
 Image.defaultProps = {
   uri: '',
   size: 56,
+  margin: 0,
   circle: false,
   around: false,
   square: false,

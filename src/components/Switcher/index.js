@@ -6,10 +6,10 @@ const Switcher = ({currentType, setCurrentType}) => {
     return(
         <SwitchView>
             <SwitchButton isActive={currentType === 'Anime'} onPress={() => setCurrentType('Anime')}>
-                <Span >Anime</Span>
+                <Span>Animes</Span>
             </SwitchButton>
             <SwitchButton isActive={currentType === 'Manga'} onPress={() => setCurrentType('Manga')}>
-                <Span>Manga</Span>
+                <Span>Mangas</Span>
             </SwitchButton>
         </SwitchView>
     )

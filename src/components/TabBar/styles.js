@@ -34,5 +34,5 @@ border-right-color:${props=> props.label === 'Home' ? 'rgba(242, 242, 242, 0.3)'
 height:100%;
 align-items:center;
 justify-content:center;
-margin:0 3px 0 2px;
+margin:0 2px 0 1px;
 `;

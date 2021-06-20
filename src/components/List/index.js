@@ -1,17 +1,14 @@
 import React from 'react'
 import {FlatList} from 'react-native'
 import { Span, TouchPress } from './styles'
+import {ListCard} from 'src/components'
 
 const List = ({data,searchNext,loading, currentType, setCurrentObj}) => {
 
 
     const renderItem = ({item}) => {
     return(
-        <TouchPress onPress={() => setCurrentObj(item)}>
-            <Span>
-                {item.attributes.canonicalTitle},{item.id}
-            </Span>
-        </TouchPress>
+        <ListCard item={item} />
         )
     }
 
@@ -37,6 +34,7 @@ const List = ({data,searchNext,loading, currentType, setCurrentObj}) => {
                 ListFooterComponent={listFooter} 
                 onEndReachedThreshold={0.01}   
                 onEndReached={() => searchNext()}  
+                style={{width:'100%'}}
             />
         )}
 
