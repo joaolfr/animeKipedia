@@ -4,7 +4,7 @@ import {Text, Image} from 'src/components/UI'
 
 export const Wrapper = styled.View`
 width:100%;
-height:${metrics.hp(203)}px;
+height:${metrics.hp(223)}px;
 background:${props => props.theme.colors.primary_subtle}
 margin-bottom:${metrics.hp(20)}px;
 border-radius:${metrics.hp(10)}px;

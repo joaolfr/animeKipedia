@@ -12,7 +12,7 @@ const Image = ({
     ImageSource = { uri, priority: FastImage.priority.normal };
   }
   return (
-    <Wrapper style={style} size={size} circle={circle} around={around} square={square} margin={margin}>
+    <Wrapper size={size} circle={circle} around={around} square={square} margin={margin} style={style}>
       <ImageStyled
         source={ImageSource}
         size={size}
@@ -26,22 +26,22 @@ const Image = ({
 
 Image.propTypes = {
   uri: PropTypes.string,
+  style: PropTypes.array,
   size: PropTypes.number,
   margin: PropTypes.number,
   circle: PropTypes.bool,
   around: PropTypes.bool,
   square: PropTypes.bool,
-  style: PropTypes.string
 };
 
 Image.defaultProps = {
   uri: '',
+  style: [],
   size: 56,
   margin: 0,
   circle: false,
   around: false,
   square: false,
-  style:""
 };
 
 export default Image;

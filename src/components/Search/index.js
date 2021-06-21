@@ -6,7 +6,7 @@ const Search = ({queryText, setQueryText, search}) => {
 
     return(
        <Wrapper>
-           <SearchIcon width={24} height={24}/>
+           <SearchIcon width={20} height={20}/>
            <SearchInput placeholder="search" value={queryText} onChangeText={value => setQueryText(value)} onSubmitEditing={() => search()}/>
        </Wrapper>
     )

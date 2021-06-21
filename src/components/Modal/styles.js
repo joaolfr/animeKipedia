@@ -18,7 +18,7 @@ export const Wrapper = styled.View`
   background: ${props => props.theme.colors.primary_subtle};
   align-items: center;
   justify-content: flex-start;
-  height:${props => props.length > 1000 ? '100' : props.length <400 ? '70' : (props.length/10) }%;
+  height:${props => props.length > 1000 ? '100' : props.length <700 ? '70' : (props.length/10) }%;
   min-height:70%;
   width:100%;
   position:absolute;
@@ -134,8 +134,8 @@ export const Sinopse = styled(Text).attrs(()=>({
 color:${props => props.theme.colors.white};
 
 `
-export const SinopseText = styled(Text).attrs(()=>({
-    type:'little',
+export const SinopseText = styled(Text).attrs((props)=>({
+    type: props.landScape ? 'max' : 'little',
     weight:'medium'
 }))`
 

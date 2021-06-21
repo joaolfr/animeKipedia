@@ -31,6 +31,7 @@
     "react-native-svg-transformer": "^0.14.3",
     "react-native-vector-icons": "^8.1.0",
     "react-navigation": "^4.4.4",
+    "react-navigation-transitions": "^1.0.12",
     "styled-components": "^5.3.0",
     "zustand": "^3.5.2"
   },

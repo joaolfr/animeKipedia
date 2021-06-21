@@ -23,6 +23,7 @@ import {
   RemoveText
   
 } from './styles';
+import {Dimensions} from 'react-native'
 import FastImage from 'react-native-fast-image';
 import {NoImage} from 'src/assets/images'
 
@@ -33,7 +34,11 @@ const MovieModal = ({
   current,
   favoritesIds,
 }) => {
-    
+  
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
+  var landScape = windowHeight > windowWidth ? false : true
+
   let ImageSource = NoImage;
   
   let uri = 'https://ik.imagekit.io/0gpwujpz1/No_image_available_T4YyeP1PdA.png'
@@ -84,7 +89,7 @@ const MovieModal = ({
           </TitleWrapper>
           <SinopseWrapper>
             <Sinopse>Sinopse</Sinopse>
-            <SinopseText>
+            <SinopseText landScape={landScape}>
               {current.attributes.synopsis}
             </SinopseText>
           </SinopseWrapper>

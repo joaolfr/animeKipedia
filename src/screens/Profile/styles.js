@@ -62,7 +62,7 @@ text-align:center;
 export const InfoCard = styled.View`
 width:100%;
 background:${props => props.theme.colors.primary_subtle};
-height:${metrics.hp(228)}px;
+height:${metrics.hp(248)}px;
 margin-bottom:${metrics.hp(8)}px;
 border-radius:10px;
 flex-direction:row;
@@ -81,8 +81,8 @@ align-items:center;
 justify-content:space-between;
 
 ` 
-export const DescriptionText = styled(Text).attrs(() =>({
-    type:'medium',
+export const DescriptionText = styled(Text).attrs((props) =>({
+    type: props.landScape ? 'large': 'medium',
     weight:'medium'
 }))`
 

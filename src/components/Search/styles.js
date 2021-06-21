@@ -3,7 +3,7 @@ import metrics from 'src/utils/metrics'
 
 export const Wrapper = styled.View`
 width:100%;
-height:${metrics.hp(37)}px;
+height:${metrics.hp(45)}px;
 background:#fff;
 flex-direction:row;
 background:${props => props.theme.colors.primary_subtle};
@@ -17,6 +17,7 @@ export const SearchInput = styled.TextInput.attrs((props)=>({
 }))`
 flex:1;
 margin-left:${metrics.hp(10)}px;
-font-size:12px;
-color:${props => props.theme.colors.auxiliary}
+font-size:${metrics.hp(16)}px;
+color:${props => props.theme.colors.auxiliary};
+height:100%;
 ` 

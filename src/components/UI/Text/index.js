@@ -1,24 +1,25 @@
 import styled from 'styled-components';
+import metrics from 'src/utils/metrics'
 
 const TextStyled = styled.Text`
   font-size: ${props => {
     switch (props.type) {
       case 'large':
-        return 24;
+        return metrics.hp(24);
       case 'big':
-        return 20;
+        return metrics.hp(20);
       case 'max':
-        return 16;
+        return metrics.hp(16);
       case 'medium':
-        return 14;
+        return metrics.hp(14);
       case 'small':
-        return 12;
+        return metrics.hp(12);
       case 'little':
-        return 11;
+        return metrics.hp(11);
       case 'tiny':
-        return 10;
+        return metrics.hp(10);
       default:
-        return 14;
+        return metrics.hp(14);
     }
   }}px;
   color: ${props => props.color || '#1F253C'};

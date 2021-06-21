@@ -23,7 +23,7 @@ border-radius:${metrics.hp(15)}px;
 
 
 export const Span = styled(Text).attrs(() => ({
-    type:'small',
+    type:'medium',
 }))`
 ;
 color:${props => props.theme.colors.auxiliary};
