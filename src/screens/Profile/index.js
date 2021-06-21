@@ -29,13 +29,10 @@ const Profile = () => {
                     <DescriptionContainer>
                         <DescriptionText>
 
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum  
-                          
+                    My name is João Luiz, but you can call me John. I'm 25 years old, 
+                    I love playing video games and watch some Netflix with my wife. 
+                    In my free time I like walking on the beach with my dog ​​and shopping at the mall. 
+                    I've played dota 2 for a long time, but after getting angry I stopped XD                          
                         </DescriptionText>
                     </DescriptionContainer>
                     <InterestsContainer>
@@ -56,12 +53,10 @@ const Profile = () => {
                         <DescriptionText>
                             <DescriptionText>
 
-                                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                                Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                                Lorem ipsum Lorem ipsum  
+                                I have a degree in computer science, and I've been working as a programmer since 2017.
+                                I've had experience in several areas, such as Java, python, Django but 
+                                I'm passionate about front end, especially Mobile, and I've been working with it for over two years. I have focused my 
+                                studies only on mobile technologies, mainly react native, to become an expert in the area.  
                          
                             </DescriptionText>
                         </DescriptionText>

@@ -2,19 +2,23 @@ import styled from 'styled-components'
 import {Text} from 'src/components/UI'
 import metrics from 'src/utils/metrics'
 
-export const Wrapper = styled.View`
+export const Wrapper = styled.ScrollView.attrs(() => ({
+    contentContainerStyle:{
+        flexGrow:1,
+        justifyContent:'center',
+        alignItems:'center'
+    }
+}))`
 flex:1;
 width:100%;
 background:${props => props.theme.colors.primary_light}
-padding:0 ${metrics.hp(10)}px;
-align-items:center;
-justify-content:center;
+
 `
 export const Circle = styled.View`
 width:678px;
 height:678px;
 border-radius:339px;
-top:-487px;
+top:-527px;
 position:absolute;
 background:${props => props.theme.colors.primary_subtle}
 `
@@ -23,7 +27,7 @@ flex:1;
 width:100%;
 align-items:center;
 justify-content:center;
-
+margin-top:${metrics.hp(40)}px;
 ` 
 export const Name = styled(Text).attrs(() =>({
     type:'large',
@@ -39,7 +43,7 @@ margin-top:${metrics.hp(15)}px;
 `
 
 //PROFILE INFO
-export const Container = styled.ScrollView`
+export const Container = styled.View`
 flex:1;
 width:100%;
 
@@ -87,4 +91,5 @@ color:${props => props.theme.colors.white};
 width:100%;
 font-weight:600;
 text-align:center;
+text-align:justify;
 `
