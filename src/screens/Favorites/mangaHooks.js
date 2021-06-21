@@ -68,6 +68,7 @@ export default () => {
         isModalVisible,
         currentManga,
         favoritesMangasIds,
+        favoritesMangas,
         loadingNextMangas,
         searchMangas,
         searchNextMangas, 

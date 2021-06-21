@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import FastImage from 'react-native-fast-image';
 
 export const Wrapper = styled.View`
-  height: ${(props) => 1.6*(props.size)}px;
+  height: ${(props) =>props.circle? props.size : 1.6*(props.size)}px;
   width: ${(props) => props.size}px;
   background: #c4c4c4;
   border-radius: ${(props) => {

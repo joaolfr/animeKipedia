@@ -5,7 +5,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 export const Wrapper = styled.View`
 flex:1;
 width:100%;
-background:${props => props.theme.colors.primary}
+background:${props => props.theme.colors.primary_light};
+align-items:center;
+flex-direction:column;
 `
 
 export const Span = styled.Text`

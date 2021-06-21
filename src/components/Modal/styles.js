@@ -1,51 +1,202 @@
 import styled from 'styled-components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FastImage from 'react-native-fast-image';
+import Modal from 'react-native-modal';
+import metrics from 'src/utils/metrics'
+import {Text, Image} from 'src/components/UI';
+import {Heart} from 'src/assets/icons/tab'
+import {RemoveFavorite} from 'src/assets/icons'
 
-// import {Text} from '../../UI';
+export const ModalWrapper = styled(Modal).attrs(() => ({
+animationIn:'bounceInUp'
+}))`
+margin:0
+` 
 
 export const Wrapper = styled.View`
 
-  
-  background: #000;
+  background: ${props => props.theme.colors.primary_subtle};
   align-items: center;
   justify-content: flex-start;
- height:100%;
+  height:${props => props.length > 1000 ? '100' : props.length <400 ? '70' : (props.length/10) }%;
+  min-height:70%;
   width:100%;
-  
-  
+  position:absolute;
+  bottom:0;
 `;
 
-export const ReturnButton = styled(Ionicons).attrs(props => ({
-  name: 'close-outline',
-  color: 'white',
-  size: 40,
-  // : 'star-outline'
+export const Header = styled.ImageBackground.attrs(() => ({
+ 
 }))`
-  position: absolute;
-  top: 1px;
-
-  margin-left: 10px;
+ 
+  width:100%;
+  height:${metrics.hp(200)}px;
+  resize-mode: stretch;
+  justify-content: center;
+  align-items:flex-end;
+  justify-content:flex-end;
 `;
 
-export const Span = styled.Text`
-color:#fff;
-font-size:12px;
+// CLOSE ELEMENTS
+export const CloseWrapper = styled.TouchableOpacity`
+width:100%;
+height:${metrics.hp(30)}px;
+position:absolute;
+top:0;
+background:transparent;
+align-items:center;
+justify-content:flex-end;
 ` 
 
-export const FavButton = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  height: 50px;
-  width: 50px;
-  align-items: center;
-  justify-content: center;
+export const ReturnButton = styled.View`
+  height:${metrics.hp(5)}px;
+  width:${metrics.hp(134)}px;
+  background:${props => props.theme.colors.primary_subtle};
 `;
 
-export const FavoriteOption = styled(Ionicons).attrs(props => ({
-  name: props.isFavorite ? 'star' : 'star-outline',
-  color: 'yellow',
-  size: 50,
+// HEADER ELEMENTS
+export const PosterImage = styled(Image).attrs(()=>({
+    size:126,
+    style:'position:absolute, bottom:-83px',
+    circle:true
+}))`
+  position: absolute;
+  bottom: ${metrics.hp(-63)}px;
+  left:${metrics.hp(20)}px;
+` 
+
+export const RankWrapper = styled.View`
+width:50%;
+height:100px;
+flex-direction:column;
+align-items:flex-end;
+justify-content:space-evenly;
+padding-right:${metrics.hp(10)}px;
+` 
+export const RankText = styled(Text).attrs(()=>({
+    type:'small'
+}))`
+
+color:${props => props.theme.colors.white};
+background:${props => props.theme.colors.primary_subtle};
+border-radius:10px;
+align-self:flex-end;
+padding:5px;
+` 
+//INFO ELEMENTS
+export const Span = styled(Text).attrs(()=>({
+    type:'medium'
+}))`
+
+color:${props => props.theme.colors.white};
+
+`
+
+export const TitleWrapper = styled.View`
+width:60%;
+height:${metrics.hp(70)}px;
+flex-direction:column;
+justify-content:flex-start;
+align-items:flex-start;
+align-self:flex-end;
+padding-top:10px;
+` 
+export const TitleText = styled(Text).attrs(()=>({
+    type:'max',
+    weight:'heavy'
+}))`
+
+color:${props => props.theme.colors.white};
+
+`
+
+export const DurationText = styled(Text).attrs(() => ({
+    weight:'medium',
+    type:'tiny'
+}))`
+color:#fff
+` 
+
+//SINOPSE ELEMENTS
+
+export const SinopseWrapper = styled.View`
+flex:1;
+flex-direction:column;
+width:100%;
+padding:${metrics.hp(20)}px;
+` 
+
+export const Sinopse = styled(Text).attrs(()=>({
+    type:'medium',
+    weight:'heavy'
+}))`
+
+color:${props => props.theme.colors.white};
+
+`
+export const SinopseText = styled(Text).attrs(()=>({
+    type:'little',
+    weight:'medium'
+}))`
+
+color:${props => props.theme.colors.white};
+
+`
+// FOOTER ELEMENTS
+export const FavButton = styled.TouchableOpacity`
+  
+ 
+  height:${metrics.hp(46)}px;
+  width: 90%;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  background:${props => props.theme.colors.secondary};
+  margin: 5px ${metrics.hp(20)}px;
+  border-radius:10px;
+`;
+export const FavText = styled(Text).attrs(()=>({
+    type:'medium',
+    weight:'medium'
+}))`
+
+color:${props => props.theme.colors.white};
+margin-left:${metrics.hp(10)}px;
+
+`
+export const FavoriteOption = styled(Heart).attrs(props => ({
+  width:24,
+  height:24,
+  fill:'#fff'
+  // : 'star-outline'
+}))``;
+
+// 
+// 
+export const RemoveButton = styled.TouchableOpacity`
+  
+ 
+  height:${metrics.hp(46)}px;
+  width: 90%;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  background:${props => props.theme.colors.secondary_dark};
+  margin: 5px ${metrics.hp(20)}px;
+  border-radius:10px;
+`;
+export const RemoveText = styled(Text).attrs(()=>({
+    type:'medium',
+    weight:'medium'
+}))`
+
+color:${props => props.theme.colors.white};
+margin-left:${metrics.hp(10)}px;
+
+`
+export const RemoveOption = styled(RemoveFavorite).attrs(props => ({
+  width:24,
+  height:24,
+  fill:'#fff'
   // : 'star-outline'
 }))``;

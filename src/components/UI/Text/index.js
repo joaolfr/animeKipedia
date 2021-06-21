@@ -13,6 +13,8 @@ const TextStyled = styled.Text`
         return 14;
       case 'small':
         return 12;
+      case 'little':
+        return 11;
       case 'tiny':
         return 10;
       default:

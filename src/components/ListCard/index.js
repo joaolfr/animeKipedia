@@ -7,10 +7,14 @@ import {
     DetailContainer, 
     InfoContainer,
     RanksContainer,
-    RankCard
+    RankCard,
+    RankText,
+    RankTypeText,
+    TitleText,
+    DurationText
 } from './styles'
 
-const InfoCard = ({item}) => {
+const InfoCard = ({item, setCurrentObj}) => {
 
     
     return(
@@ -18,28 +22,42 @@ const InfoCard = ({item}) => {
             
             <DetailContainer>
                 <ImageComponent uri={item.attributes.posterImage.medium} />
+
                 <InfoContainer>
+                    {/* THE VALIDATIONS ARE USED TO SHOW OR NOT THE INFO, IN CASE NULL SO THE ATTRIBUTE WILL BE NOT DISPLAYED */}
                     <RanksContainer>
+                        {item.attributes.ratingRank && (
                         <RankCard>
-                            <Span>#{item.attributes.ratingRank}</Span>
-                            <Span>Rating Rank</Span>
+                            <RankText>#{item.attributes.ratingRank}</RankText>
+                            <RankTypeText>Rating Rank</RankTypeText>
                         </RankCard>
+                        )}
+
+                        {item.attributes.popularityRank && (
+
                         <RankCard>
-                            <Span>#{item.attributes.popularityRank}</Span>
-                            <Span>Popularity Rank</Span>
+                            <RankText>#{item.attributes.popularityRank}</RankText>
+                            <RankTypeText>Popularity Rank</RankTypeText>
                         </RankCard>
+                        )}
                     </RanksContainer>
-                    <Span>{item.attributes.canonicalTitle}</Span>
-                    {item.attributes.episodeCount ? (
 
-                        <Span>episode: {item.attributes.episodeCount} | {item.attributes.episodeLength} min </Span>
-                    ): (
-                        <Span>chapter: {item.attributes.chapterCount} </Span>
+                    <TitleText>{item.attributes.canonicalTitle}</TitleText>
 
-                    )}
+                    {item.attributes.episodeCount && (
+
+                        <DurationText>episode: {item.attributes.episodeCount} | {item.attributes.episodeLength && (item.attributes.episodeLength + ' min')} </DurationText>
+                    ) }
+
+                   {item.attributes.chapterCount && (
+
+                        <DurationText>chapter: {item.attributes.chapterCount} </DurationText>
+                   )}
+
+                  
                 </InfoContainer>
             </DetailContainer>
-            <DetailButton>
+            <DetailButton onPress={() => setCurrentObj(item)}>
                 <Span>
                     DETAILS
                 </Span>

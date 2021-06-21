@@ -7,7 +7,7 @@ import {Modal, List, Search, Switcher} from 'src/components'
 
 const Home = () => {
 
-    const [currentType, setCurrentType] = useState('Anime')
+    const [currentType, setCurrentType] = useState('Animes')
 
     const {
         loading, 
@@ -43,25 +43,27 @@ const Home = () => {
     
         <Wrapper>
             <Search 
-                queryText={currentType ==='Anime'? queryText : queryManga} 
-                setQueryText={currentType ==='Anime' ? setQueryText : setQueryManga} 
-                search={currentType ==='Anime' ? search : searchMangas} />
+                queryText={currentType ==='Animes'? queryText : queryManga} 
+                setQueryText={currentType ==='Animes' ? setQueryText : setQueryManga} 
+                search={currentType ==='Animes' ? search : searchMangas} />
 
             <Switcher currentType={currentType} setCurrentType={setCurrentType} />
        
             <List 
-                data={currentType ==='Anime' ? animes: mangas}
-                searchNext={currentType ==='Anime' ? searchNext : searchNextMangas} 
+                data={currentType ==='Animes' ? animes: mangas}
+                searchNext={currentType ==='Animes' ? searchNext : searchNextMangas} 
                 currentType={currentType}
-                setCurrentObj={currentType ==='Anime' ? setCurrentObj : setCurrentMangaObj}   
-                loading={currentType ==='Anime' ? loading : loadingMangas} />
+                setCurrentObj={currentType ==='Animes' ? setCurrentObj : setCurrentMangaObj}   
+                loading={currentType ==='Animes' ? loading : loadingMangas} />
          
            <Modal 
-                favoritesIds={currentType ==='Anime' ? favoritesIds : favoritesMangasIds} 
-                changeFavorites={currentType ==='Anime' ? changeFavorites : changeFavoritesMangas} 
-                current={currentType ==='Anime' ? current : currentManga} 
-                isVisible={currentType ==='Anime' ? isModalVisible : isModalMangaVisible} 
-                toggleModal={currentType ==='Anime' ?toggleModal : toggleMangaModal}/>
+                favoritesIds={currentType ==='Animes' ? favoritesIds : favoritesMangasIds} 
+                changeFavorites={currentType ==='Animes' ? changeFavorites : changeFavoritesMangas} 
+                current={currentType ==='Animes' ? current : currentManga} 
+                isVisible={currentType ==='Animes' ? isModalVisible : isModalMangaVisible} 
+                toggleModal={currentType ==='Animes' ?toggleModal : toggleMangaModal}
+                
+                />
 
         </Wrapper>
        

@@ -3,12 +3,12 @@ import {FlatList} from 'react-native'
 import { Span, TouchPress } from './styles'
 import {ListCard} from 'src/components'
 
-const List = ({data,searchNext,loading, currentType, setCurrentObj}) => {
+const List = ({data,searchNext,loading, currentType, setCurrentObj, favorites}) => {
 
 
     const renderItem = ({item}) => {
     return(
-        <ListCard item={item} />
+        <ListCard item={item} setCurrentObj={setCurrentObj} />
         )
     }
 
@@ -16,7 +16,12 @@ const List = ({data,searchNext,loading, currentType, setCurrentObj}) => {
     return(
 
         <Span>
-            Loading more animes...
+            {!favorites ? (
+
+                `Loading more ${currentType}...`
+            ) : (
+                ''
+            )}
         </Span>
     
          )
@@ -24,18 +29,22 @@ const List = ({data,searchNext,loading, currentType, setCurrentObj}) => {
 
     return(
         <>
-        {loading && <Span>loading mangas...</Span>}
+        {loading && <Span>Loading {currentType}...</Span>}
         {!loading && (
-            
-            <FlatList
+            data.length > 0 ? (
+
+                <FlatList
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
-                ListFooterComponent={listFooter} 
+                ListFooterComponent={ listFooter} 
                 onEndReachedThreshold={0.01}   
                 onEndReached={() => searchNext()}  
                 style={{width:'100%'}}
-            />
+                />
+            ) : (
+                <Span>No {currentType} on list :(</Span>
+            )
         )}
 
         </>
