@@ -8,7 +8,7 @@
 
 #### Intruction to Run
 
-- **Clone the project
-- **In the project folder execute: _yarn install_
-- **In main folder execute _npx react-native run-android_
+- Clone the project
+- In the project folder execute: _yarn install_
+- In main folder execute _npx react-native run-android_
 
