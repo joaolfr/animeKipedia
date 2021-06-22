@@ -78,7 +78,7 @@ export const InterestsContainer = styled.View`
   justify-content: space-between;
 `;
 export const DescriptionText = styled(Text).attrs(props => ({
-  type: props.landScape ? 'large' : 'max',
+  type: 'medium',
   weight: 'medium',
 }))`
   color: ${props => props.theme.colors.white};
