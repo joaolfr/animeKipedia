@@ -11,6 +11,7 @@ import {
   InterestsContainer,
   DescriptionText,
 } from './styles';
+
 import {Dimensions} from 'react-native';
 
 import {ProfileImage} from 'src/assets/images';
@@ -73,11 +74,10 @@ const Profile = () => {
             <DescriptionText>
               <DescriptionText landScape={landScape}>
                 I have a degree in computer science, and I've been working as a
-                programmer since 2017. I've had experience in several areas,
-                such as Java, python, Django but I'm passionate about front end,
-                especially Mobile, and I've been working with it for over two
-                years. I have focused my studies only on mobile technologies,
-                mainly react native, to become an expert in the area.
+                programmer since 2017. Programming for me is like a superpower, 
+                where you give life to real solutions that help real people! 
+                It's almost magic :) I have focused my studies only on mobile technologies,
+                mainly react native, to become an expert in the area, and build even better apps
               </DescriptionText>
             </DescriptionText>
           </DescriptionContainer>

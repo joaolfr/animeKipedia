@@ -5,7 +5,7 @@ import { useMangaStore} from 'src/stores'
 export default () => {
 
     //mangas
-    const {loadMangas, loading:loadingMangas} = getMangas()
+    const {loadMangas, loading:loadingMangas, error} = getMangas()
     const {loadNext:loadNextMangas, loading:loadingNextMangas} = updateMangasList()
     const {mangas, clearMangas, favorites:favoritesMangas, favoritesIds:favoritesMangasIds, setFavorites:setFavoritesMangas, setFavoritesIds:setFavoritesMangasIds} = useMangaStore()
     
@@ -32,12 +32,10 @@ export default () => {
 
 //SEARCH MANGAS FUNCTIONs
     const searchMangas = () => {
-        console.log("chamou search mangas")
       clearMangas()
       loadMangas(queryManga)
     }
     const searchNextMangas = () => {
-        console.log("chamou search next mangas")
       loadNextMangas(queryManga)
     }
 
@@ -69,6 +67,7 @@ export default () => {
         currentManga,
         favoritesMangasIds,
         loadingNextMangas,
+        error,
         searchMangas,
         searchNextMangas, 
         setCurrentMangaObj,

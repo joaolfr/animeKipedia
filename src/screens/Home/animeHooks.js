@@ -5,7 +5,7 @@ import {useAnimesStore} from 'src/stores'
 export default () => {
 
   //animes
-    const {loadAnimes, loading} = getAnimes()
+    const {loadAnimes, loading, error} = getAnimes()
     const {loadNext, loading:loadingNext } = updateAnimesList()
     const {animes, clearAnimes, favorites, favoritesIds, setFavorites, setFavoritesIds} = useAnimesStore()
 
@@ -31,12 +31,10 @@ export default () => {
     
 //SEARCH ANIME FUNCTIONs
     const search = () => {
-      console.log('chamou search animes', queryText)
       clearAnimes()
       loadAnimes(queryText)
     }
     const searchNext = () => {
-      console.log('chamou search next animes', queryText)
       loadNext(queryText)
     }
 
@@ -67,6 +65,7 @@ export default () => {
         current,
         favoritesIds,
         loadingNext,
+        error,
         search,
         searchNext,
         setCurrentObj,

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-import { Wrapper, Span, FavButton, FavoriteOption, SwitchView, SwitchButton} from './styles'
-import useFavorites from './hooks'
-import {Modal, List, Search, Switcher} from 'src/components'
+import { Wrapper} from './styles'
+import {Modal, List, Switcher} from 'src/components'
 import useAnime from './animeHooks'
 import useManga from './mangaHooks'
 
@@ -10,34 +9,24 @@ const Favorites = () => {
 
     const {
         loading, 
-        animes, 
-        queryText, 
         isModalVisible, 
         current, 
         favoritesIds, 
         favorites,
-        searchNext, 
         toggleModal, 
         setCurrentObj, 
         changeFavorites, 
-        setQueryText, 
-        search
     } = useAnime()
 
     const {
-        loadingMangas, 
-        mangas,
-        queryManga, 
+        loadingMangas,  
         isModalVisible:isModalMangaVisible,
         currentManga,
         favoritesMangasIds,
         favoritesMangas,
-        searchMangas,
-        searchNextMangas, 
         setCurrentMangaObj,
         toggleModal:toggleMangaModal,
         changeFavoritesMangas,
-        setQueryManga, 
     } = useManga()
 
     return(

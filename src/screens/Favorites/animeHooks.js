@@ -31,12 +31,10 @@ export default () => {
     
 //SEARCH ANIME FUNCTIONs
     const search = () => {
-      console.log('chamou search animes', queryText)
       clearAnimes()
       loadAnimes(queryText)
     }
     const searchNext = () => {
-      console.log('chamou search next animes', queryText)
       loadNext(queryText)
     }
 

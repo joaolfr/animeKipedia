@@ -4,11 +4,13 @@ import {useMangaStore} from '../../stores';
 
 export default () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   const {setMangas} = useMangaStore();
 
   const loadMangas = useCallback(async search => {
     setLoading(true);
-
+    setError(false)
     let query = '/manga'
 
     if(search){
@@ -19,26 +21,16 @@ export default () => {
       const {data} = await API.get(
         query,
       );
-      if (data.Response === 'False') {
-        setMangas([
-          {
-            Title: 'Esse filme não existe XD',
-            Poster: 'https://ik.imagekit.io/0gpwujpz1/404_ZIzMLGHGz.jpg',
-            imdbID: 0,
-          },
-        ]);
-      } else {
-         
-          setMangas(data.data)
-        
-          
-      }
+           
+      setMangas(data.data)
 
       setLoading(false);
+
     } catch (err) {
       setLoading(false);
+      setError(true)
       console.log('erro statement: ', err);
     }
   }, []);
-  return {loading, loadMangas};
+  return {loading, loadMangas, error};
 };

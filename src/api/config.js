@@ -7,14 +7,7 @@ const API = axios.create({
 
 API.interceptors.request.use(
   async config => {
-    //the code bellow can used to set Bearer token on request
-
-    // const token = await TokenStorage.getToken();
-    // if (token !== null) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    //   console.log('token: ', token);
-    // }
-
+ 
     config.headers['Content-Type'] = 'application/json';
 
     return config;

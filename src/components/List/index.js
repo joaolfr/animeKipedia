@@ -1,9 +1,9 @@
 import React from 'react'
 import {FlatList} from 'react-native'
-import { Span, TouchPress } from './styles'
+import { Span} from './styles'
 import {ListCard} from 'src/components'
 
-const List = ({data,searchNext,loading, currentType, setCurrentObj, favorites}) => {
+const List = ({data,searchNext,loading, currentType, setCurrentObj, favorites, error}) => {
 
 
     const renderItem = ({item}) => {
@@ -43,7 +43,12 @@ const List = ({data,searchNext,loading, currentType, setCurrentObj, favorites}) 
                 style={{width:'100%'}}
                 />
             ) : (
-                <Span>No {currentType} on list :(</Span>
+                error ? (
+                    <Span>We are being attacked by parasites in the moment :( can you come back later?</Span>
+                ):(
+
+                    <Span>No {currentType} on list :(</Span>
+                )
             )
         )}
 

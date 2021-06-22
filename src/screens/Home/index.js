@@ -15,7 +15,8 @@ const Home = () => {
         queryText, 
         isModalVisible, 
         current, 
-        favoritesIds, 
+        favoritesIds,
+        error:errorAnime, 
         searchNext, 
         toggleModal, 
         setCurrentObj, 
@@ -31,6 +32,7 @@ const Home = () => {
         isModalVisible:isModalMangaVisible,
         currentManga,
         favoritesMangasIds,
+        error:errorManga,
         searchMangas,
         searchNextMangas, 
         setCurrentMangaObj,
@@ -54,8 +56,10 @@ const Home = () => {
                 searchNext={currentType ==='Animes' ? searchNext : searchNextMangas} 
                 currentType={currentType}
                 setCurrentObj={currentType ==='Animes' ? setCurrentObj : setCurrentMangaObj}   
-                loading={currentType ==='Animes' ? loading : loadingMangas} />
-         
+                loading={currentType ==='Animes' ? loading : loadingMangas} 
+                error={currentType === 'Animes' ? errorAnime : errorManga}
+                />
+                
            <Modal 
                 favoritesIds={currentType ==='Animes' ? favoritesIds : favoritesMangasIds} 
                 changeFavorites={currentType ==='Animes' ? changeFavorites : changeFavoritesMangas} 
